@@ -1,6 +1,7 @@
 # weatherapp
 
 openweathermap api 를 통해 얻어온 날씨 정보를 바탕으로 옷을 추천해주는 앱입니다.
+상태관리는 getx를 사용하였습니다.
 
 ## 홈화면
 
