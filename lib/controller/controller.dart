@@ -74,7 +74,7 @@ class HomeController extends GetxController {
   Future<CurrentWeather> getCurrentWeather(
       double latitude, double longitude) async {
     var response = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=7c1ae4c1f92f2afc556fbefee29c55d8&units=metric&lang=kr"));
+        "https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=72ce55c0189e1c1091cf14565c1c6df7&units=metric&lang=kr"));
     if (response.statusCode == 200) {
       return CurrentWeather.fromJson(jsonDecode(response.body));
     } else {
@@ -85,7 +85,7 @@ class HomeController extends GetxController {
   Future<DailyWeather> getDailyWeather(
       double latitude, double longitude) async {
     var response = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,alerts&lang=kr&appid=7c1ae4c1f92f2afc556fbefee29c55d8"));
+        "https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,alerts&lang=kr&appid=72ce55c0189e1c1091cf14565c1c6df7"));
     if (response.statusCode == 200) {
       return DailyWeather.fromJson(jsonDecode(response.body));
     } else {
