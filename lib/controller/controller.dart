@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -66,15 +67,19 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     initializeDateFormatting();
+
     daysFormat = DateFormat.MMMMd('ko').add_jm();
     daysFormat2 = DateFormat('', 'ko').add_jm();
+
     dataLoad();
   }
 
   Future<CurrentWeather> getCurrentWeather(
       double latitude, double longitude) async {
+    var key = FlutterConfig.get('apiKey');
+
     var response = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=72ce55c0189e1c1091cf14565c1c6df7&units=metric&lang=kr"));
+        "https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$key&units=metric&lang=kr"));
     if (response.statusCode == 200) {
       return CurrentWeather.fromJson(jsonDecode(response.body));
     } else {
@@ -84,8 +89,9 @@ class HomeController extends GetxController {
 
   Future<DailyWeather> getDailyWeather(
       double latitude, double longitude) async {
+    var key = FlutterConfig.get('apiKey');
     var response = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,alerts&lang=kr&appid=72ce55c0189e1c1091cf14565c1c6df7"));
+        "https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,alerts&lang=kr&appid=$key"));
     if (response.statusCode == 200) {
       return DailyWeather.fromJson(jsonDecode(response.body));
     } else {
