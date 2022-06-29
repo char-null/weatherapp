@@ -1,4 +1,5 @@
 # weatherapp
+<<<<<<< HEAD
 
 A new Flutter project.
 
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+openweathermap api를 사용한 날씨앱입니다.
+>>>>>>> c0063b3bc810cd48aeef64c2e7e8a7048f26a80f
