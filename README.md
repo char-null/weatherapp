@@ -10,3 +10,4 @@ openweathermap api 를 통해 얻어온 날씨 정보를 바탕으로 옷을 추
 application.
 
 openweathermap api를 사용한 날씨앱입니다.
+ai 는 아니지만 하드코딩해서 기온에 따라 옷이 바뀌게 만들었습니다.
